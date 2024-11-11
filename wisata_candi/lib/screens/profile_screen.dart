@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class profilescreen extends StatefulWidget {
-  const profilescreen({super.key});
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({super.key});
 
   @override
-  State<profilescreen> createState() => _profilescreenstate();
+  State<ProfileScreen> createState() => _profilescreenstate();
 }
 
-class _profilescreenstate extends State<profilescreen> {
+class _profilescreenstate extends State<ProfileScreen> {
   // TODO: DEKLARASIKAN VARIABLE YANG DIPERLUKAN
 
   bool issign = false;
