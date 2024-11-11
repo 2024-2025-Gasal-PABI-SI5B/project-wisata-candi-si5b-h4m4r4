@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
+
 
 class SignInScreen extends StatelessWidget {
   SignInScreen({super.key});
@@ -23,41 +25,88 @@ class SignInScreen extends StatelessWidget {
       ),
       //TODO: BODY
       body: Center(
-        child: Form(
-          child: Column(
-            //TODO: ATUR MAINAXISALIGNMENT DAN CROSAXISALIGNMENT
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              //TODO: TEXTFORMFIELD NAMA PENGGUNA
-              TextFormField(
-                controller: _usernameControler,
-                decoration: const InputDecoration(
-                  labelText: 'Nama Pengguna',
-                  hintText: 'Masukan Nama Pengguna',
-                  border: OutlineInputBorder(
-
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Form(
+              child: Column(
+                //TODO: ATUR MAINAXISALIGNMENT DAN CROSAXISALIGNMENT
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  //TODO: TEXTFORMFIELD NAMA PENGGUNA
+                  TextFormField(
+                    controller: _usernameControler,
+                    decoration: const InputDecoration(
+                      labelText: 'Nama Pengguna',
+                      hintText: 'Masukan Nama Pengguna',
+                      border: OutlineInputBorder(
+            
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              //TODO: TEXTFORMFIELD KATA SANDI
-              TextFormField(
-                controller: _passwordControler,
-                decoration: const InputDecoration(
-                  labelText: 'Kata Sandi',
-                  hintText: 'Masukan Kata Sandi',
-                  border: OutlineInputBorder(
-
+                  const SizedBox(
+                    height: 20,
                   ),
-                  // errorText: _errorText.isNotEmpty ? _errorText : null,
-                ),
-              ),
-              //TODO: ELAVATEDBUTTON SIGN IN
-            ],
-          ) 
+                  //TODO: TEXTFORMFIELD KATA SANDI
+                  TextFormField(
+                    controller: _passwordControler,
+                    decoration: InputDecoration(
+                      labelText: 'Kata Sandi',
+                      hintText: 'Masukan Kata Sandi',
+                      border: const OutlineInputBorder(),
+                      errorText: _errortext.isNotEmpty ? _errortext : null,
+                      suffixIcon: 
+                        IconButton(
+                          onPressed: (){},
+                          icon:Icon(
+                            _obscurepassword ? Icons.visibility: Icons.visibility_off,
+                          ),
+                        ),
+                    ),
+                    obscureText: _obscurepassword,
+                  ),
+                  //TODO: ELAVATEDBUTTON SIGN IN
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  ElevatedButton(
+                    onPressed: (){},
+                    child: const Text('Sign In'),
+                  ),
+                  //TODO: TEXTBUTTON SIGN UP
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  // TextButton(
+                  //   onPressed: (){},
+                  //   child: const Text('belum punya akun ?, daftar di sini'),
+                  // ),
+                  RichText(
+                    text: TextSpan(
+                      text: 'belum punya akun ?',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.deepPurple
+                      ),
+                      children: [
+                        TextSpan(
+                          text: 'daftar di sini',
+                          style: const TextStyle(
+                            color: Colors.blue,
+                            fontSize: 16,
+                            decoration: TextDecoration.underline,
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap=(){},
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ) 
+            ),
+          ),
         ),
       ),
     );
